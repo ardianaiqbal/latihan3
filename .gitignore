@@ -1,5 +1,9 @@
 .DS_Store
 node_modules
+src/components/AddToDoButton.vue
+src/components/ToDos.vue
+src/components/ToDoItem.vue
+src/components/HelloWorld.vue
 /dist
 
 
