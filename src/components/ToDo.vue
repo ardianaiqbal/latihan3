@@ -7,9 +7,9 @@
     </ol>
   </div>
 
-  <input v-model="tambahList" v-on:keyup.enter="tambahkan"/>
-  <button @click="tambahkan">tambahkan</button>
-  <p v-if="jumlah >= 4">Hebat!</p>
+  <input v-model="tambahList" @keyup.enter="tambahkan"/>
+  <button @click="tambahkan">Tambahkan</button>
+  <p v-if="minimalEmpat">Hebat!</p>
   <div></div>
 </template>
   
@@ -19,20 +19,23 @@ export default {
   data() {
     return {
       listDaftar: [],
-      jumlah: 0,
     };
   },
   methods: {
     tambahkan() {
-        if(this.tambahList!=null&&this.tambahList!=''){
+        if(this.tambahList.trim()!=null&&this.tambahList.trim()!=''){
             this.listDaftar.push(this.tambahList);
-      this.jumlah++;
       this.tambahList = "";
         }
         else{
             null;
         }
       
+    },
+  },
+  computed:{
+    minimalEmpat(){
+      return this.listDaftar.length>=4
     },
   },
 };
